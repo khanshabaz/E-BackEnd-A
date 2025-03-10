@@ -3,7 +3,6 @@ const Cart = model.Cart;
 
 exports.addToCart = async (req, res) => {
   const cart = new Cart(req.body);
-  console.log(cart)
   try {
     const doc = await cart.save();
     const result=await doc.populate("product")
@@ -30,8 +29,10 @@ exports.updateCart = async (req, res) => {
   const {id}=req.params
    try {
      const cart = await Cart.findByIdAndUpdate(id,req.body,{new:true});
-     res.status(200).json(cart);
-   } catch (err) {
+     const result = await cart.populate('product');
+     res.status(200).json(result);
+
+    } catch (err) {
      console.error({ err });
      res.status(400).json(err);
    }

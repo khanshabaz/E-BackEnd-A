@@ -3,7 +3,6 @@ const Product = model.Product;
 
 exports.createProduct = async (req, res) => {
   const product = new Product(req.body);
-  console.log(req.body);
   try {
     const newProduct = await product.save();
     res.status(201).json(newProduct);
@@ -49,7 +48,6 @@ exports.fetchAllProducts = async (req, res) => {
   }
 
   const totalDocs = await totalProductQuery.countDocuments().exec();
-console.log(totalDocs)
   try {
     const doc = await query.exec();
     res.set("X-Total-Count", totalDocs);

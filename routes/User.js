@@ -4,7 +4,7 @@ const userController = require("../controller/User");
 const router = express.Router();
 
 router
-  .get("/", userController.fetchUserById)
-  // .post("/",authController.loginUser)
+  .get("/:id", userController.fetchUserById)
+  .patch("/:id", userController.updateUser)
   
   exports.router=router

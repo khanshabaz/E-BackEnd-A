@@ -22,7 +22,7 @@ server.use('/products',productsRouter.router)
 server.use('/brands',brandsRouter.router)
 server.use('/categories',categoriesRouter.router)
 server.use('/cart',cartRouter.router)
-server.use('/user',userRouter.router)
+server.use('/users',userRouter.router)
 server.use('/auth', authRouter.router);
 server.use('/orders',orderRouter.router)
 server.use(express.static(path.resolve(__dirname,'dist')))

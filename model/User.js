@@ -5,7 +5,6 @@ const userSchema = new Schema({
   password: { type: String, required: true },
   role: { type: String, required: true, default:"user" },
   name: { type: String },
-  orders: { type: [Schema.Types.Mixed]},
   addresses: { type:[ Schema.Types.Mixed] },
   
 });
